@@ -31,13 +31,13 @@ public class MenueWindow extends Window{
     }
 
     @Override
-    public void configMemberVariablen() {
+    public void initMemberVariablen() {
         lol = new Button("jaaa");
         verschlüsselungsprogramm = new Button("Verschlüsselungsprogramm");
     }
 
     @Override
-    public void createWindow() {
+    public void buildWindow() {
         menueWindow.add(lol, 0, 0);
         menueWindow.add(verschlüsselungsprogramm, 0, 1);
     }

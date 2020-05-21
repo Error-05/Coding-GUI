@@ -10,6 +10,8 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
+import java.io.IOException;
+
 
 public class LoginWindow extends Window{
 
@@ -45,7 +47,7 @@ public class LoginWindow extends Window{
     }
 
     @Override
-    public void configMemberVariablen() {
+    public void initMemberVariablen() {
         benutzernameEingabe = new TextField();
         passwortEingabe = new TextField();
         loginBtn = new Button("Anmelden");
@@ -53,7 +55,7 @@ public class LoginWindow extends Window{
     }
 
     @Override
-    public void createWindow() {
+    public void buildWindow() {
         Text ueberschrift = new Text("Geben sie ihre Daten ein");
         ueberschrift.setFont(Font.font("Arial", FontWeight.BOLD, 25));
         loginWindow.add(ueberschrift, 0, 0, 2 ,1);
@@ -65,7 +67,8 @@ public class LoginWindow extends Window{
     }
 
     public boolean datenUeberpruefung() {
-        if (getBenutzer().containsKey(benutzernameEingabe.getText()) && getBenutzer().containsValue(passwortEingabe.getText())) {
+        if (getBenutzerPasswort().containsKey(benutzernameEingabe.getText())
+                && getBenutzerPasswort().containsValue(passwortEingabe.getText())) {
             return (datenEingabe = true);
         } else {
             return datenEingabe;
